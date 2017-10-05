@@ -1,4 +1,4 @@
-# from instapy_cli.session import PynstagramSession
+from instapy_cli.session import PynstagramSession
 
 
 class PynstagramClient(object):

@@ -3,8 +3,10 @@ import instapy_cli
 from optparse import OptionParser
 
 
-def mainOLD(args=None):
+def main(args=None):
     """ The main routine """
+    welcome_msg = 'instapy-cli ' + u'\ud83d\udd25'
+    print(welcome_msg)
     if args is None:
         args = sys.argv[1:]
     parser = OptionParser(usage="usage: %prog [options]")
@@ -26,10 +28,6 @@ def mainOLD(args=None):
     with instapy_cli.client(options.username, password) as client:
         text = options.caption or ''
         client.upload(options.file, text)
-
-def main(args=None):
-    welcome_msg = 'instapy-cli ' + u'\ud83d\udd25'
-    print(welcome_msg)
 
 if __name__ == '__main__':
     main()
