@@ -1,4 +1,4 @@
-from pynstagram.client import PynstagramClient
+from instapy_cli.instapy import PynstagramClient
 
 
 def client(*args, **kwargs):

@@ -1,9 +1,9 @@
 import sys
-import pynstagram
+import instapy_cli
 from optparse import OptionParser
 
 
-def main(args=None):
+def mainOLD(args=None):
     """ The main routine """
     if args is None:
         args = sys.argv[1:]
@@ -23,9 +23,13 @@ def main(args=None):
     if not options.file:
         parser.error('File path is required')
 
-    with pynstagram.client(options.username, password) as client:
+    with instapy_cli.client(options.username, password) as client:
         text = options.caption or ''
         client.upload(options.file, text)
+
+def main(args=None):
+    welcome_msg = 'instapy-cli ' + u'\ud83d\udd25'
+    print(welcome_msg)
 
 if __name__ == '__main__':
     main()
