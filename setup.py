@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
 
 setup(
-    name='instapy-cli',
-    version='0.1dev-rc1',
+    name='instapycli',
+    version='0.0.1.dev1',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
     long_description='',
     classifiers=[
@@ -17,12 +17,12 @@ setup(
     author_email='benedetto.abbenanti@gmail.com',
     url='https://github.com/b3nab/instapy-cli',
     license='MIT',
-    packages=['instapy-cli'],  #same as name
-    install_requires=['bar', 'greek'], #external packages as dependencies
+    packages=['instapy_cli'],
+    # install_requires=[''], #external packages as dependencies
     entry_points={
-        'console_script' = [
-            'instapy=instapy-cli.instapy-cli:main'
+        'console_scripts': [
+            'instapy=instapy_cli.__main__:main'
         ]
     },
-    python_requires='>=2.7'
+    # python_requires='>=2.7'
 )
