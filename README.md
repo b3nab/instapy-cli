@@ -1,16 +1,17 @@
-### **instapy-cli** :zap:
+<p align="center">![](./docs/instagram-private-banner.png =550x)</p>
+# **instapy-cli** :zap:
 Python library and cli used to upload photo on Instagram. W/o a phone!
 
 ---
 ## Introduction
-There are a plenty of libraries written in Python dedicated to Instagram APIs (public or private, no matter).. but most of them have unsolved issues and PR not maintained for a time as long as 5-6 months.
+There are a plenty of libraries written in Python dedicated to Instagram APIs (public or ***private***, no matter).. but most of them have unsolved issues and PR not maintained for a time as long as 5-6 months.
 
-At the same time lots of developers want a simple and effective way to post/upload an photo/image programmatically.
+At the same time lots of developers want a simple and effective way to post/**upload** an photo/**image** **programmatically**.
 
 So I dedice to start this repo and OpenSource it w/ :heart:
 
 
-_```[FUTURE]```_ **spoiler:** And if I want to upload a video?
+***`[FUTURE] spoiler:`*** And if I want to upload a video?
 
 
 ### Usage
@@ -35,7 +36,7 @@ MIT
 
 
 ### Contribute
-To help instapy developers to build and maintain this project, go to **/docs/CONTRIBUTING.md**
+To help `instapy-cli` developers to build and maintain this project, go to **/docs/CONTRIBUTING.md**
 > instruction soon
 
 (Write it if you want to collaborate! :smirk:)
