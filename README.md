@@ -1,4 +1,7 @@
-<p align="center">![](./docs/instagram-private-banner.png =550x)</p>
+<p align="center">
+  <img src="docs/instagram-private-banner.png" alt="instagram-private-api" height="350px">
+</p>
+
 # **instapy-cli** :zap:
 Python library and cli used to upload photo on Instagram. W/o a phone!
 
@@ -36,7 +39,7 @@ MIT
 
 
 ### Contribute
-To help `instapy-cli` developers to build and maintain this project, go to **/docs/CONTRIBUTING.md**
+To help `instapy-cli` developers to build and maintain this project, go to **[docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
 > instruction soon
 
 (Write it if you want to collaborate! :smirk:)
