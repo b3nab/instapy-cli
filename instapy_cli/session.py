@@ -18,7 +18,7 @@ def generate_user_agent():
     res = random.choice(RESOLUTIONS)
     dpi = random.choice(DPIS)
 
-    inst_version = '.'.join([str(p) for p in ['5', randint(1, 2), randint(0, 2)]])
+    inst_version = '10.3.2'
     and_version = str(randint(10, 11)) + '/' + '.'.join([str(p) for p in [randint(1, 3), randint(3, 5), randint(0, 5)]])
 
     return 'Instagram %s Android (%s; %s; %s; samsung; %s; %s; smdkc210; en_US)' % \
@@ -27,12 +27,13 @@ def generate_user_agent():
 
 def generate_signature(data):
     return hmac.new(
-        'b4a23f5e39b5929e0666ac5de94c89d1618a2916'.encode('utf-8'),
+        '5ad7d6f013666cc93c88fc8af940348bd067b68f0dce3c85122a923f4f74b251'.encode('utf-8'),
         data.encode('utf-8'), hashlib.sha256).hexdigest()
 
 
 class PynstagramSession(object):
     ENDPOINT_URL = 'https://i.instagram.com/api/v1'
+    HEADERS = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
 
     def __init__(self):
         self.guid = str(uuid.uuid1())
@@ -43,28 +44,39 @@ class PynstagramSession(object):
     def login(self, username, password):
         data = json.dumps({
             'device_id': self.device_id,
-            'guid': self.guid,
+            # 'guid': self.guid,
+            '_uuid': self.guid,
             'username': username,
             'password': password,
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            # 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            '_csrftoken': 'missing',
+            'login_attempt_count': 0
         })
 
         sig = generate_signature(data)
 
-        payload = 'signed_body=%s.%s&ig_sig_key_version=4' % (sig, urllib.quote(data))
-        resp = self.session.post(self.ENDPOINT_URL + '/accounts/login/', payload)
+        payload = 'signed_body=%s.%s&ig_sig_key_version=4' % (sig, data)
+        resp = self.session.post(self.ENDPOINT_URL + '/accounts/login/', payload, headers=self.HEADERS)
         resp_json = resp.json()
 
         if resp_json.get('status') != 'ok':
             raise IOError(resp_json.get('message'))
 
     def upload_photo(self, path):
-        data = {'device_timestamp': time.time()}
+        # data = {'device_timestamp': time.time()}
+        data = {
+            '_csrftoken': 'missing',
+            'upload_id': int(time.time()),
+            'device_id': self.device_id,
+            '_uuid': self.guid,
+            'image_compression': '{"lib_name":"jt","lib_version":"1.3.0","quality":"70"}',
+            'filename': 'pending_media_{}.jpg'.format(time.time())
+        }
         files = {'photo': open(path, 'rb')}
-        resp = self.session.post(self.ENDPOINT_URL + '/media/upload/', data, files=files)
+        resp = self.session.post(self.ENDPOINT_URL + '/upload/photo/', data, files=files)
         resp_json = resp.json()
 
-        media_id = resp_json.get('media_id')
+        media_id = resp_json.get('upload_id')
         if media_id is None:
             raise IOError(resp_json.get('message'))
         return media_id
@@ -72,7 +84,8 @@ class PynstagramSession(object):
     def configure_photo(self, media_id, caption):
         data = json.dumps({
             'device_id': self.device_id,
-            'guid': self.guid,
+            '_uuid': self.guid,
+            '_csrftoken': 'missing',
             'media_id': media_id,
             'caption': caption,
             'device_timestamp': time.time(),
@@ -88,7 +101,7 @@ class PynstagramSession(object):
             sig,
             urllib.quote(data))
 
-        resp = self.session.post(self.ENDPOINT_URL + '/media/configure/', payload)
+        resp = self.session.post(self.ENDPOINT_URL + '/media/configure/', payload, headers=self.HEADERS)
         resp_json = resp.json()
 
         if resp_json.get('status') != 'ok':
