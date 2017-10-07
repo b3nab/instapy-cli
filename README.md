@@ -9,6 +9,7 @@ Python library and cli used to upload photo on Instagram. W/o a phone!
   <img src="docs/instagram-private-banner.png" alt="instagram-private-api" width="650px">
 </p>
 ---
+
 ## Introduction
 There are a plenty of libraries written in Python dedicated to Instagram APIs (public or ***private***, no matter).. but most of them have unsolved issues and PR not maintained for a time as long as 5-6 months.
 
