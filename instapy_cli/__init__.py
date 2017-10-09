@@ -1,5 +1,5 @@
-from instapy_cli.instapy import PynstagramClient
+from instapy_cli.instapy import InstapyCli
 
 
 def client(*args, **kwargs):
-    return PynstagramClient(*args, **kwargs)
+    return InstapyCli(*args, **kwargs)

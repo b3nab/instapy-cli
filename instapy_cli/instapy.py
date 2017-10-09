@@ -1,9 +1,9 @@
-from instapy_cli.session import PynstagramSession
+from instapy_cli.session import InstapySession
 
 
-class PynstagramClient(object):
+class InstapyCli(object):
     def __init__(self, username, password):
-        self._session = PynstagramSession()
+        self._session = InstapySession()
         self._session.login(username, password)
 
     def __enter__(self):

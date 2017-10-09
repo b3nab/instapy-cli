@@ -31,7 +31,7 @@ def generate_signature(data):
         data.encode('utf-8'), hashlib.sha256).hexdigest()
 
 
-class PynstagramSession(object):
+class InstapySession(object):
     ENDPOINT_URL = 'https://i.instagram.com/api/v1'
     HEADERS = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
 
