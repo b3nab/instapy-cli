@@ -1,12 +1,12 @@
 import sys
-import instapy_cli
+from instapy_cli.cli import InstapyCli as client
 from optparse import OptionParser
 import emoji
 
 
 def main(args=None):
-    """ The main routine """
-    welcome_msg = emoji.emojize(':fire:  instapy-cli :fire:')
+
+    welcome_msg = emoji.emojize(':laptop_computer: instapy-cli :camera:')
     print(welcome_msg)
     if args is None:
         args = sys.argv[1:]
