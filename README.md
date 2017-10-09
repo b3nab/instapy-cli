@@ -50,6 +50,14 @@ Short answer:
 Long answer:
 > Every connection from a mobile phone could be intercepted. Someone has done the hard work to sniff the packets sended from phone to Instagram and "spread the news". You could do a quick research.
 
+## Code Requirements
+#### This packages will be installed automatically with *instapy-cli*
+
+| package     | Source Link |
+| :---:       | :---: |
+| requests    | https://github.com/requests/requests |
+| emoji       | https://github.com/carpedm20/emoji |
+
 ## License
 MIT
 
