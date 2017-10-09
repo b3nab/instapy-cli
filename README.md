@@ -1,13 +1,14 @@
 # **instapy-cli** :zap: [![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
 
 
-[![PyPI version](https://badge.fury.io/py/instapy-cli@.png)](https://badge.fury.io/py/instapy-cli)
+[![Instapy-Cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
 
 Python library and cli used to upload photo on Instagram. W/o a phone!
 
 <p align="center">
   <img src="docs/instagram-private-banner.png" alt="instagram-private-api" width="650px">
 </p>
+
 ---
 
 ## Introduction
@@ -22,7 +23,6 @@ So I dedice to start this repo and OpenSource it w/ :heart:
 
 
 ### Usage
-Be careful, this repo is in a status of "work in progress" :rotating_light:
 
 **Install**
 
@@ -50,11 +50,10 @@ Short answer:
 Long answer:
 > Every connection from a mobile phone could be intercepted. Someone has done the hard work to sniff the packets sended from phone to Instagram and "spread the news". You could do a quick research.
 
-### License
+## License
 MIT
 
-
-### Contribute
+## Contribute
 To help `instapy-cli` developers to build and maintain this project, go to **[docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
 > instruction soon
 
