@@ -1,7 +1,7 @@
-# **instapy-cli** :zap: [![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
-
+# **instapy-cli** :zap:
 
 [![Instapy-Cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
+[![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
 
 Python library and cli used to upload photo on Instagram. W/o a phone!
 
@@ -65,4 +65,4 @@ MIT
 To help `instapy-cli` developers to build and maintain this project, go to **[docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
 > instruction soon
 
-(Write it if you want to collaborate! :smirk:)
+(Write it and collaborate! :wink:)
