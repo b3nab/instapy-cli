@@ -1,14 +1,21 @@
 import sys
+from platform import python_version
 from instapy_cli.cli import InstapyCli as client
 from optparse import OptionParser
-import emoji
+from emoji import emojize
 
 
 def main(args=None):
 
-    welcome_msg = emoji.emojize(':laptop_computer: instapy-cli :camera:')
+    welcome_msg = emojize(':laptop_computer:  instapy-cli :camera:')
     print(welcome_msg)
+    print(emojize(':snake:  Python version: ' + python_version()))
+
+    # cli = client()
+    # cli.loop(args)
+
     if args is None:
+        print('use >> instapy -u <USERNAME> -p <PASSWORD> -f <IMAGE.JPG> -t <CAPTION>')
         args = sys.argv[1:]
     parser = OptionParser(usage="usage: %prog [options]")
     parser.add_option('-u', dest='username', help='username')
@@ -26,9 +33,9 @@ def main(args=None):
     if not options.file:
         parser.error('File path is required')
 
-    with instapy_cli.client(options.username, password) as client:
+    with client(options.username, password) as cli:
         text = options.caption or ''
-        client.upload(options.file, text)
+        cli.upload(options.file, text)
 
 if __name__ == '__main__':
     main()
