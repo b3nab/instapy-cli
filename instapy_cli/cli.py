@@ -1,4 +1,7 @@
-from instapy_cli.session import InstapySession
+from platform import python_version
+from emoji import emojize
+
+from instapy_cli.api import InstapySession
 
 
 class InstapyCli(object):

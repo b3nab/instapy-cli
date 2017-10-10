@@ -6,7 +6,11 @@ import hashlib
 import uuid
 import json
 import time
-import urllib
+
+try:
+    from urllib.parse import quote
+except ImportError:
+    from urllib import quote
 
 VERSIONS = ('GT-N7000', 'SM-N9000', 'GT-I9220', 'GT-I9100')
 RESOLUTIONS = ('720x1280', '320x480', '480x800', '1024x768', '1280x720', '768x1024', '480x320')
@@ -44,7 +48,6 @@ class InstapySession(object):
     def login(self, username, password):
         data = json.dumps({
             'device_id': self.device_id,
-            # 'guid': self.guid,
             '_uuid': self.guid,
             'username': username,
             'password': password,
@@ -99,7 +102,7 @@ class InstapySession(object):
 
         payload = 'signed_body={}.{}&ig_sig_key_version=4'.format(
             sig,
-            urllib.quote(data))
+            quote(data))
 
         resp = self.session.post(self.ENDPOINT_URL + '/media/configure/', payload, headers=self.HEADERS)
         resp_json = resp.json()
