@@ -1,14 +1,23 @@
 import os
+import codecs
 
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 
+def read(*parts):
+    """
+    Build an absolute path from *parts* and and return the contents of the
+    resulting file.  Assume UTF-8 encoding.
+    """
+    with codecs.open(os.path.join(here, *parts), "rb", "utf-8") as f:
+        return f.read()
+
 setup(
     name='instapy-cli',
-    version='0.0.1',
+    version='0.0.2',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
-    long_description=open('README.md.rst').read(),
+    long_description=read('README.rst'),
     classifiers=[
         # How mature is this project?
         'Development Status :: 5 - Production/Stable',
