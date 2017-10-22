@@ -9,6 +9,7 @@ Python library and cli used to upload photo on Instagram. W/o a phone!
 .. image:: https://github.com/b3nab/instapy-cli/raw/master/docs/instagram-private-banner.png
    :width: 650px
    :align: center
+
 --------------
 
 Introduction
@@ -67,7 +68,6 @@ Code Requirements
 -----------------
 
 This packages will be installed automatically with *instapy-cli*
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +------------+----------------------------------------+
 | package    | Source Link                            |
