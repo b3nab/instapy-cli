@@ -74,8 +74,6 @@ This packages will be installed automatically with *instapy-cli*
 +============+========================================+
 | requests   | https://github.com/requests/requests   |
 +------------+----------------------------------------+
-| emoji      | https://github.com/carpedm20/emoji     |
-+------------+----------------------------------------+
 
 License
 -------

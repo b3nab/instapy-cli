@@ -2,14 +2,14 @@ import sys
 from platform import python_version
 from instapy_cli.cli import InstapyCli as client
 from optparse import OptionParser
-from emoji import emojize
-
+import pkg_resources  # part of setuptools
+version = pkg_resources.require('instapy_cli')[0].version
 
 def main(args=None):
 
-    welcome_msg = emojize(':laptop_computer:  instapy-cli :camera:')
-    print(welcome_msg)
-    print(emojize(':snake:  Python version: ' + python_version()))
+    welcome_msg = 'instapy-cli'
+    print('instapy-cli v.' + version)
+    print('Python version: ' + python_version())
 
     # cli = client()
     # cli.loop(args)

@@ -56,7 +56,6 @@ Long answer:
 | package     | Source Link |
 | :---:       | :---: |
 | requests    | https://github.com/requests/requests |
-| emoji       | https://github.com/carpedm20/emoji |
 
 ## License
 MIT
