@@ -11,6 +11,13 @@ Take inspiration from https://github.com/atom/atom/blob/master/CONTRIBUTING.md#g
 *FOR ISSUE*
 It's possile to record the terminal with ttystudio and upload a gif attached to the issue to see the problem :D
 
+
+### New Release
+
+A development wip of instapy-cli should be named '-devX', where X is the dev release version.
+
+Instead all the releases that are considered stable should have no suffix.
+
 Thanks! :cherries:
 
 **b3nab** a.k.a. Benedetto Abbenanti
