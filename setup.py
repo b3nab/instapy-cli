@@ -15,7 +15,7 @@ def read(*parts):
 
 setup(
     name='instapy-cli',
-    version='0.0.2-r1',
+    version='0.0.2-r2',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
     long_description=read('README.rst'),
     classifiers=[
@@ -46,7 +46,6 @@ setup(
     packages=['instapy_cli', 'instapy_cli/api'],
     install_requires=[ # external packages as dependencies
         'requests>=2',
-        'emoji'
     ],
     entry_points={
         'console_scripts': [
