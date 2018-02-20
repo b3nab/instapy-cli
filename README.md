@@ -4,6 +4,7 @@
 [![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
 
 Python library and cli used to upload photo on Instagram. W/o a phone!
+You can upload a local file or use a link, it do all automagically.
 
 <p align="center">
   <img src="docs/instagram-private-banner.png" alt="instagram-private-api" width="650px">
@@ -30,7 +31,7 @@ So I dedice to start this repo and OpenSource it w/ :heart:
 
 **Use**
 
-`instapy -f <PATH/TO/IMAGE.jpg> -t "Instagram caption here!" -u <username> -p <password>`
+`instapy -u USR -p PSW -f FILE/LINK -t 'TEXT CAPTION'`
 
 **Help**
 

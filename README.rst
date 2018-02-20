@@ -4,6 +4,7 @@
 |Instapy-Cli version| |MIT license|
 
 Python library and cli used to upload photo on Instagram. W/o a phone!
+You can upload a local file or use a link, it do all automagically.
 
 
 .. image:: https://github.com/b3nab/instapy-cli/raw/master/docs/instagram-private-banner.png
@@ -35,7 +36,7 @@ Usage
 
 **Use**
 
-``instapy -f <PATH/TO/IMAGE.jpg> -t "Instagram caption here!" -u <username> -p <password>``
+``instapy -u USR -p PSW -f FILE/LINK -t 'TEXT CAPTION'``
 
 **Help**
 
