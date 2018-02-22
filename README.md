@@ -1,7 +1,15 @@
 # **instapy-cli** :zap:
 
-[![Instapy-Cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
+[![Build Status](https://travis-ci.org/b3nab/instapy-cli.svg?branch=master)](https://travis-ci.org/b3nab/instapy-cli)
+[![instapy-cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
 [![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
+
+######*Github Infos*
+[![GitHub issues](https://img.shields.io/github/issues/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/issues)
+[![GitHub forks](https://img.shields.io/github/forks/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/network)
+[![GitHub stars](https://img.shields.io/github/stars/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/stargazers)
+
+---
 
 Python library and cli used to upload photo on Instagram. W/o a phone!
 You can upload a local file or use a link, it do all automagically.
