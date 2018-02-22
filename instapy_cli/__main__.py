@@ -14,23 +14,28 @@ TODO:
 def main(args=None):
 
     welcome_msg = 'instapy-cli'
-    print('instapy-cli v.' + version)
-    print('Python version: ' + python_version())
+    print('instapy ' + version + '  |  python ' + python_version())
 
     # cli = client()
     # cli.loop(args)
 
-    if args is None:
-        print('use >> instapy -u <USERNAME> -p <PASSWORD> -f <IMAGE.JPG> -t <CAPTION>')
-        args = sys.argv[1:]
     parser = OptionParser(usage="usage: %prog [options]")
     parser.add_option('-u', dest='username', help='username')
     parser.add_option('-p', dest='password', help='password')
     parser.add_option('-f', dest='file', help='file path or url')
-    # parser.add_option('-u', dest='url', help='url to media')
     parser.add_option('-t', dest='caption', help='caption text')
+    # parser.add_option('-h', dest='help', help='help')
 
     (options, args) = parser.parse_args(args)
+    if args is None or (
+        not options.username and
+        not options.password and
+        not options.file and
+        not options.caption
+    ):
+        print('[USE] instapy -u USR -p PSW -f FILE/LINK -t \'TEXT CAPTION\'')
+        print('\nFor other reference go to >> https://github.com/b3nab/instapy-cli')
+        return
     if not options.username:
         parser.error('Username is required')
     password = options.password
