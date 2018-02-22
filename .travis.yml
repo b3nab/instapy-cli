@@ -8,7 +8,8 @@ python:
 # command to install dependencies
 install:
   - python setup.py install
-# command to run tests
+before_script:
+ - chmod +x ./scripts/test.sh #permission to test.sh to exec
 script:
   - python setup.py sdist # check for build
-  - ./scripts/test.sh
+  - ./scripts/test.sh #run test
