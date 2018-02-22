@@ -12,4 +12,4 @@ before_script:
  - chmod +x ./scripts/test.sh #permission to test.sh to exec
 script:
   - python setup.py sdist # check for build
-  - ./scripts/test.sh #run test
+  - bash scripts/test.sh #run test
