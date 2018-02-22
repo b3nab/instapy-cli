@@ -1,3 +1,4 @@
+sudo: false
 language: python
 python:
   - "2.6"
@@ -6,7 +7,8 @@ python:
   - "3.6"
 # command to install dependencies
 install:
-  - pip install -r requirements.txt
+  - python setup.py install
 # command to run tests
 script:
-  - instapy # or py.test for Python versions 3.5 and below
+  - python setup.py sdist # check for build
+  - ./scripts/test.sh
