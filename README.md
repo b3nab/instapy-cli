@@ -70,7 +70,7 @@ Long answer:
 MIT
 
 ## Contribute
-To help `instapy-cli` developers to build and maintain this project, go to **docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
+To help `instapy-cli` developers to build and maintain this project, go to **[docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
 > instructions soon
 
 (Write it and collaborate! :wink:)
