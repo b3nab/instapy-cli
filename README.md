@@ -11,8 +11,8 @@
 
 ---
 
-Python library and cli used to upload photo on Instagram. W/o a phone!
-You can upload a local file or use a link, it do all automagically.
+Python library and cli used to post photos on Instagram, without a phone!
+You can upload a local file or use a link, it does everything automagically.
 
 <p align="center">
   <img src="docs/instagram-private-banner.png" alt="instagram-private-api" width="650px">
@@ -21,14 +21,14 @@ You can upload a local file or use a link, it do all automagically.
 ---
 
 ## Introduction
-There are a plenty of libraries written in Python dedicated to Instagram APIs (public or ***private***, no matter).. but most of them have unsolved issues and PR not maintained for a time as long as 5-6 months.
+There are plenty of libraries written in Python dedicated to Instagram APIs (either public or private).. but most of them have unsolved issues and PRs not maintained for a time as long as 5-6 months.
 
-At the same time lots of developers want a simple and effective way to post/**upload** an photo/**image** **programmatically**.
+At the same time, lots of developers want a simple and effective way to post photos **programmatically**.
 
-So I dedice to start this repo and OpenSource it w/ :heart:
+So I dediced to start this repo and open-source it with :heart:
 
 
-***`[FUTURE] spoiler:`*** And if I want to upload a video?
+***`[FUTURE] spoiler:`*** And what if I want to upload a video?
 
 
 ### Usage
@@ -46,18 +46,18 @@ So I dedice to start this repo and OpenSource it w/ :heart:
 `instapy --help`
 
 ### Why instapy-cli?
-First, long story short: instapy-cli is a fork of pynstagram, with the aim of extend its functionality and fix all unresolved bug.
+First, long story short: instapy-cli is a fork of pynstagram, with the aim of extending its functionality and fixing all unresolved bugs.
 
 ##### Move this project to a better place :arrow_right_hook:
-Anyone that want to collaborate, I'll promise to be a good Repo Manager and merge all yours Pull Request as soon as possible.
-I have some ideas to improve this but I need collaboration. Enter and support! :bulb:
+Anyone that wants to collaborate, I promise to be a good repo manager and merge all your pull requests as soon as possible.
+I have some ideas to improve this but I need collaboration. Join and support! :bulb:
 
-##### But, wait! Instagram don't let to upload a photo except from app ( of course :trollface: )
+##### But, wait! Instagram doesn't allow uploading photos except from the app (of course :trollface:)
 Short answer:
 > Yes, you are right.
 
 Long answer:
-> Every connection from a mobile phone could be intercepted. Someone has done the hard work to sniff the packets sended from phone to Instagram and "spread the news". You could do a quick research.
+> Every connection from a mobile phone could be intercepted. Someone has done the hard work to sniff the packets sent from the phone to Instagram and "spread the news". You can do a quick research.
 
 ## Code Requirements
 #### This packages will be installed automatically with *instapy-cli*
@@ -70,7 +70,7 @@ Long answer:
 MIT
 
 ## Contribute
-To help `instapy-cli` developers to build and maintain this project, go to **[docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
-> instruction soon
+To help `instapy-cli` developers to build and maintain this project, go to **docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
+> instructions soon
 
 (Write it and collaborate! :wink:)
