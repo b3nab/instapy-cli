@@ -28,4 +28,4 @@ class InstapyCli(object):
             media_id = self._session.upload_photo(path)
             self._session.configure_photo(media_id, caption)
         finally:
-            media.removeMedia()
+            pass
