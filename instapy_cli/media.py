@@ -13,10 +13,12 @@ class Media(object):
 
     def __init__(self, file):
         self.media = file
+
         # if file is link
         if urlparse(file).scheme in ('http', 'https'):
             self.pathFile = self.downloadMediaFromLink(file)
             self.isLink = True
+
         # if file is a local file
         else:
             self.pathFile = file
@@ -24,13 +26,14 @@ class Media(object):
     def getPath(self):
         return self.pathFile
 
-    def isLink(self):
+    def isDownloaded(self):
         return self.isLink
 
     def downloadMediaFromLink(self,url):
+        print('Downloading Media..')
         # print(urlparse(url))
         fileName = urlparse(url).path.split('/')[-1]
-        print(fileName)
+        # print(fileName)
         r = requests.get(url, allow_redirects=True)
         open(fileName, 'wb').write(r.content)
         return fileName
