@@ -45,6 +45,9 @@ So I dediced to start this repo and open-source it with :heart:
 
 `instapy --help`
 
+#### Usage Hint
+The images need to have an aspect ratio of 1:1, that is squared size.
+
 ### Why instapy-cli?
 First, long story short: instapy-cli is a fork of pynstagram, with the aim of extending its functionality and fixing all unresolved bugs.
 
