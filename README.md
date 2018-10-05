@@ -1,5 +1,8 @@
 # **instapy-cli** :zap:
 
+[![Build Status](https://img.shields.io/badge/Paypal-DONATE-blue.svg?logo=paypal
+)](https://paypal.me/b3nab)
+####
 [![Build Status](https://travis-ci.org/b3nab/instapy-cli.svg?branch=master)](https://travis-ci.org/b3nab/instapy-cli)
 [![instapy-cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
 [![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
@@ -77,3 +80,10 @@ To help `instapy-cli` developers to build and maintain this project, go to **[do
 > instructions soon
 
 (Write it and collaborate! :wink:)
+
+## Support the project and the author
+Offer me a beer and support me and instapy-cli. :tada:
+
+Click the button here >
+[![Build Status](https://img.shields.io/badge/Paypal-DONATE-blue.svg?logo=paypal
+)](https://paypal.me/b3nab)
