@@ -24,11 +24,11 @@ You can upload a local file or use a link, it does everything automagically.
 ---
 
 ## Introduction
-There are plenty of libraries written in Python dedicated to Instagram APIs (either public or private).. but most of them have unsolved issues and PRs not maintained for a time as long as 5-6 months.
+There are plenty of libraries written in Python dedicated to Instagram APIs (either public or private), but most of them have unsolved issues and PRs not maintained for a time as long as 5-6 months.
 
 At the same time, lots of developers want a simple and effective way to post photos **programmatically**.
 
-So I dediced to start this repo and open-source it with :heart:
+So I decided to start this repo and open-source it with :heart:
 
 
 ***`[FUTURE] spoiler:`*** And what if I want to upload a video?
