@@ -64,7 +64,7 @@ class Media(object):
 
     def cropImage(self, left, top, right, bottom, imageObject):
         area = (left, top, right, bottom)
-        return imageObject.crop(area)
+        return imageObject.convert('RGB').crop(area)
     
     def isDownloaded(self):
         return self.isLink
