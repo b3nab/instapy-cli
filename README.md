@@ -24,21 +24,27 @@ You can upload a local file or use a link, it does everything automagically.
 ---
 
 ## Introduction
-There are plenty of libraries written in Python dedicated to Instagram APIs (either public or private).. but most of them have unsolved issues and PRs not maintained for a time as long as 5-6 months.
+There are plenty of libraries written in Python dedicated to Instagram APIs (either public or private), but most of them have unsolved issues and PRs not maintained for a time as long as 5-6 months.
 
 At the same time, lots of developers want a simple and effective way to post photos **programmatically**.
 
-So I dediced to start this repo and open-source it with :heart:
+So I dedided to start this repo and open-source it with :heart:
 
 
 ***`[FUTURE] spoiler:`*** And what if I want to upload a video?
 
 
-### Usage
+### Install
 
 **Install**
 
 `pip install instapy-cli`
+
+### Use as Library
+
+You can check the folder `examples` to see working codes to use instapy-cli programmatically.
+
+### Use as CLI
 
 **Use**
 
@@ -48,8 +54,16 @@ So I dediced to start this repo and open-source it with :heart:
 
 `instapy --help`
 
+
 #### Usage Hint
+*Image Format*
+Instapy-cli support images in the format of JPG/JPEG/PNG.
+
+*Aspect Ratio*
 The images need to have an aspect ratio of 1:1, that is squared size.
+You can use other aspect-ratio other than 1:1, but be carefull to stay inside this limits:
+- MIN_ASPECT_RATIO = 0.80
+- MAX_ASPECT_RATIO = 1.91
 
 ### Why instapy-cli?
 First, long story short: instapy-cli is a fork of pynstagram, with the aim of extending its functionality and fixing all unresolved bugs.
@@ -71,6 +85,7 @@ Long answer:
 | package     | Source Link |
 | :---:       | :---: |
 | requests    | https://github.com/requests/requests |
+| instagram-private-api    | https://github.com/ping/instagram_private_api |
 
 ## License
 MIT
