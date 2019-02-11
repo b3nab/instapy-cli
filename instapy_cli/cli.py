@@ -3,6 +3,7 @@ from platform import python_version
 from instapy_cli.api import InstapySession
 from instapy_cli.media import Media
 
+
 class InstapyCli(object):
     def __init__(self, username, password):
         self._session = InstapySession()
@@ -27,9 +28,12 @@ class InstapyCli(object):
             print('\nSomething went bad.\nPlease retry or send an issue on https://github.com/b3nab/instapy-cli\n')
             upload_completed = False
         finally:
-            if upload_completed:
-                print('Done.')
+
             # media_status = 'YES' if media.isDownloaded() else 'NO'
             # print('Media is a downloaded file? ' + media_status)
             if media.isDownloaded():
                 media.removeMedia()
+            if upload_completed:
+                print('Done.')
+            else:
+                raise IOError("Unable to upload.")
