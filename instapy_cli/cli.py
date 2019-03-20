@@ -5,6 +5,7 @@ from instagram_private_api import (
         ClientCookieExpiredError, ClientLoginRequiredError)
 from instapy_cli.media import Media
 
+
 class InstapyCli(object):
     settings = 'ig.json'
     def __init__(self, username, password):
@@ -111,5 +112,11 @@ class InstapyCli(object):
         finally:
             if upload_completed:
                 print('Done.')
+            # media_status = 'YES' if media.isDownloaded() else 'NO'
+            # print('Media is a downloaded file? ' + media_status)
             if media.isDownloaded():
                 media.removeMedia()
+            if upload_completed:
+                print('Done.')
+            else:
+                raise IOError("Unable to upload.")
