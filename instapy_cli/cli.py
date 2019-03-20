@@ -2,7 +2,7 @@ import os, json, codecs, datetime
 from platform import python_version
 from instagram_private_api import (
         Client, ClientError, ClientLoginError,
-        ClientCookieExpiredError, ClientLoginRequiredError)
+        ClientCookieExpiredError, ClientLoginRequiredError )
 from instapy_cli.media import Media
 
 
@@ -22,7 +22,7 @@ class InstapyCli(object):
         try:
             if not os.path.isfile(self.settings):
                 # settings file does not exist
-                # print('[IG] Unable to find file: {0!s}'.format(self.settings))
+                print('[IG] Unable to find file: {0!s}'.format(self.settings))
 
                 # login new
                 self.client = Client(
@@ -65,6 +65,8 @@ class InstapyCli(object):
         except Exception as e:
             print('Unexpected Exception: {0!s}'.format(e))
             exit(99)
+        # finally:
+        #     print(self.client.current_user())
     
     def _get_ig_settings(self):
         with open(self.settings, 'r') as igSettings:
@@ -93,25 +95,31 @@ class InstapyCli(object):
         upload_completed = True
         media = Media(file)
 
+        res = None
         try:
-            if story:
-                if media.is_image():
-                    self.client.post_photo_story(media.data(), media.size())
-                elif story and media.is_video():
-                    self.client.post_video_story(media.data(), media.size(), media.duration(), media.thumbnail())
-            else:
-                if media.is_image():
-                    self.client.post_photo(media.data(), media.size(), caption=caption)
-                elif story and media.is_video():
-                    self.client.post_video(media.data(), media.size(), media.duration(), media.thumbnail(), caption=caption)
+            
+            if media.is_image():
+                image_data, image_size = media.prepare(story)
+                if story:
+                    res = self.client.post_photo_story(image_data, image_size)
+                else:
+                    res = self.client.post_photo(image_data, image_size, caption=caption)
+            elif media.is_video():
+                video_data, video_size, video_duration, video_thumbnail = media.prepare(story)
+                if story:
+                    res = self.client.post_video_story(video_data, video_size, video_duration, video_thumbnail)
+                else:
+                    res = self.client.post_video(video_data, video_size, video_duration, video_thumbnail, caption=caption)
+            
+            # print(res)
+            
+
         except Exception as e:
             print('Error is >>\n    ' + str(e))
             print('\nSomething went bad.\nPlease retry or send an issue on https://github.com/b3nab/instapy-cli\n')
             upload_completed = False
 
         finally:
-            if upload_completed:
-                print('Done.')
             # media_status = 'YES' if media.isDownloaded() else 'NO'
             # print('Media is a downloaded file? ' + media_status)
             if media.isDownloaded():
@@ -120,3 +128,4 @@ class InstapyCli(object):
                 print('Done.')
             else:
                 raise IOError("Unable to upload.")
+            return res

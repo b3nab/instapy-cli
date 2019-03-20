@@ -1,4 +1,6 @@
 import os, requests
+from instagram_private_api import MediaRatios
+from instagram_private_api_extensions import media as IGMedia
 from PIL import Image
 #import urlparse for Python2 and Python3
 try:
@@ -25,73 +27,27 @@ class Media(object):
             self.media_path = file
         
         self.check_type()
-        self.apply_fix()
     
     def check_type(self):
         if self.media_path.split('.')[-1] in ['jpg', 'jpeg', 'png']:
             self.media_type = 'img'
         elif self.media_path.split('.')[-1] in ['mp4', 'mov']:
             self.media_type = 'vid'
+    
+    def is_image(self):
+        return True if self.media_type == 'img' else False
         
-    def apply_fix(self):
-        if self.media_type == 'vid':
-            pass
-        elif self.media_type == 'img':
-            self.media = Image.open(self.media_path)
-            if self.need_ratio_fix(self.media):
-                self.media = self.fix_aspect_ratio(self.media)
-            # new_object.save("optimized.jpg", "JPEG", quality=100, optimize=True, progressive=True)
-    
-    def get_ratio(self, width, height):
-        return width/height
-    
-    def data(self):
-        return self.media
+    def is_video(self):
+        return True if self.media_type == 'vid' else False
 
-    def size(self):
-        return (self.width, self.height)
-    
-    def duration(self):
-        return 0
-    
-    def thumbnail(self):
-        return 0
-    
-    def need_ratio_fix(self, img):
-        ratio = self.get_ratio(img.size[0], img.size[1])
-        if ratio < MIN_ASPECT_RATIO or ratio > MAX_ASPECT_RATIO:
-            return True
-        return False
+    def prepare(self, story=False):
+        ratio = MediaRatios.reel if story else MediaRatios.standard
+        if self.is_image():
+            return IGMedia.prepare_image(self.media_path, aspect_ratios=ratio)
+        elif self.is_video():
+            max_time = 15.0 if story else 60.0
+            return IGMedia.prepare_video(self.media_path, aspect_ratios=ratio, max_duration=max_time)
 
-    def fix_aspect_ratio(self, original_img):
-        width, height = original_img.size
-        aspect_ratio = self.get_ratio(width, height)
-
-        if aspect_ratio < MIN_ASPECT_RATIO:
-            # Add equal black borders on the right and left 
-            new_width = MIN_ASPECT_RATIO * height
-            left = 0 - ((new_width - width) / 2)
-            top = 0
-            right = width + ((new_width - width) / 2)
-            bottom = height
-            newImage = self.cropImage(left, top, right, bottom, original_img)
-            return newImage
-        elif aspect_ratio > MAX_ASPECT_RATIO:
-            # Add equal black borders on top and bottom 
-            new_height = width / MAX_ASPECT_RATIO
-            left = 0
-            top = 0 - ((new_height - height) / 2)
-            right = width
-            bottom = height + ((new_height - height) / 2)
-            newImage = self.cropImage(left, top, right, bottom, original_img)
-            return newImage
-        else:
-            return original_img
-
-    def cropImage(self, left, top, right, bottom, imageObject):
-        area = (left, top, right, bottom)
-        return imageObject.convert('RGB').crop(area)
-    
     def isDownloaded(self):
         return self.isLink
 
