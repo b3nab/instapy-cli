@@ -15,7 +15,7 @@ def read(*parts):
 
 setup(
     name='instapy-cli',
-    version='0.0.6-a1',
+    version='0.0.7',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
     long_description=read('README.rst'),
     classifiers=[
@@ -47,9 +47,12 @@ setup(
     install_requires=[ # external packages as dependencies
         'requests>=2',
         'Pillow>=5.2.0',
+        'instagram-private-api==1.6.0',
+        'instagram-private-api_extensions==0.3.8',
     ],
     dependency_links=[
-        'git+ssh://git@github.com/ping/instagram_private_api.git@1.5.7#egg=instagram_private_api-1.5.7'
+        'git+ssh://git@github.com/ping/instagram_private_api.git@1.6.0#egg=instagram_private_api-1.6.0',
+        'git+https://git@github.com/ping/instagram_private_api_extensions.git@0.3.8#egg=instagram_private_api_extensions-0.3.8',
     ],
     entry_points={
         'console_scripts': [
