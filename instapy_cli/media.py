@@ -1,7 +1,6 @@
 import os, requests
 from instagram_private_api import MediaRatios
 from instagram_private_api_extensions import media as IGMedia
-from PIL import Image
 #import urlparse for Python2 and Python3
 try:
     from urllib.parse import urlparse

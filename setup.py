@@ -1,23 +1,21 @@
 import os
-import codecs
-
+from io import open
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-def read(*parts):
-    """
-    Build an absolute path from *parts* and and return the contents of the
-    resulting file.  Assume UTF-8 encoding.
-    """
-    with codecs.open(os.path.join(here, *parts), "rb", "utf-8") as f:
-        return f.read()
+# Get the long description from the README file
+with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='instapy-cli',
-    version='0.0.7',
+    version='0.0.8',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
-    long_description=read('README.rst'),
+    long_description=long_description,
+    # This field corresponds to the "Description-Content-Type" metadata field:
+    # https://packaging.python.org/specifications/core-metadata/#description-content-type-optional
+    long_description_content_type='text/markdown',
     classifiers=[
         # How mature is this project?
         'Development Status :: 5 - Production/Stable',
@@ -46,7 +44,6 @@ setup(
     packages=['instapy_cli'],
     install_requires=[ # external packages as dependencies
         'requests>=2',
-        'Pillow>=5.2.0',
         'instagram-private-api==1.6.0',
         'instagram-private-api_extensions==0.3.8',
     ],
