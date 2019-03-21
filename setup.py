@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='instapy-cli',
-    version='0.0.8',
+    version='0.0.8.1',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
     long_description=long_description,
     # This field corresponds to the "Description-Content-Type" metadata field:
