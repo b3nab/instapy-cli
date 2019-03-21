@@ -18,7 +18,7 @@ Python library and cli used to post photos and videos (NEW!) on Instagram, witho
 You can upload a local file or use a link, it does everything automagically.
 
 <p align="center">
-  <img src="docs/instagram-private-banner.png" alt="instagram-private-api" width="650px">
+  <img src="https://raw.githubusercontent.com/b3nab/instapy-cli/master/docs/instagram-private-banner.png" alt="instapy-cli instagram-private-api" width="650px">
 </p>
 
 ---
