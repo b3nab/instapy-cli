@@ -35,25 +35,26 @@ So I dedided to start this repo and open-source it with :heart:
 
 **Install**
 
-```
+```shell
 pip install instapy-cli
 ```
 
 ### Use as Library
 
 You can check the folder `examples` to see working codes to use instapy-cli programmatically.
+If you want to use instapy-cli via shell continue reading.
 
 ### Use as CLI
 
 **Use**
 
-```
+```shell
 instapy -u USR -p PSW -f FILE/LINK -t 'TEXT CAPTION'
 ```
 
 **Help**
 
-```
+```shell
 instapy --help
 ```
 
