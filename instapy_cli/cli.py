@@ -110,7 +110,9 @@ class InstapyCli(object):
                     res = self.client.post_video_story(video_data, video_size, video_duration, video_thumbnail)
                 else:
                     res = self.client.post_video(video_data, video_size, video_duration, video_thumbnail, caption=caption)
-            
+            else:
+                raise Exception('Media is not a recognized file type, use only images and videos.')
+                
             # print(res)
             
 

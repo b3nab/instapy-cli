@@ -1,6 +1,7 @@
 import os, requests
 from instagram_private_api import MediaRatios
 from instagram_private_api_extensions import media as IGMedia
+import filetype
 #import urlparse for Python2 and Python3
 try:
     from urllib.parse import urlparse
@@ -13,7 +14,7 @@ MAX_ASPECT_RATIO = 1.91
 class Media(object):
     media_path = None
     media = None
-    media_type = None
+    media_ext = None
     isLink = False
 
     def __init__(self, file, ratio='post'):
@@ -28,16 +29,13 @@ class Media(object):
         self.check_type()
     
     def check_type(self):
-        if self.media_path.split('.')[-1] in ['jpg', 'jpeg', 'png']:
-            self.media_type = 'img'
-        elif self.media_path.split('.')[-1] in ['mp4', 'mov']:
-            self.media_type = 'vid'
+        self.media_ext = filetype.guess(self.media_path).extension
     
     def is_image(self):
-        return True if self.media_type == 'img' else False
+        return True if self.media_ext in ['jpg', 'png', 'gif'] else False
         
     def is_video(self):
-        return True if self.media_type == 'vid' else False
+        return True if self.media_ext in ['mp4', 'mov', 'avi'] else False
 
     def prepare(self, story=False):
         ratio = MediaRatios.reel if story else MediaRatios.standard
