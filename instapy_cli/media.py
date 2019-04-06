@@ -39,11 +39,13 @@ class Media(object):
 
     def prepare(self, story=False):
         ratio = MediaRatios.reel if story else MediaRatios.standard
+        size = (1080, 1920) if story else (1080, 1350)
+        # print('ratio is: ', ratio)
         if self.is_image():
-            return IGMedia.prepare_image(self.media_path, aspect_ratios=ratio)
+            return IGMedia.prepare_image(self.media_path, max_size=size, aspect_ratios=ratio)
         elif self.is_video():
             max_time = 15.0 if story else 60.0
-            return IGMedia.prepare_video(self.media_path, aspect_ratios=ratio, max_duration=max_time)
+            return IGMedia.prepare_video(self.media_path, max_size=size, aspect_ratios=ratio, max_duration=max_time)
 
     def isDownloaded(self):
         return self.isLink
