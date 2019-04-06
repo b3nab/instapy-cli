@@ -4,7 +4,8 @@ from instagram_private_api import (
         Client, ClientError, ClientLoginError,
         ClientCookieExpiredError, ClientLoginRequiredError )
 from instapy_cli.media import Media
-
+import warnings
+warnings.filterwarnings("ignore")
 
 class InstapyCli(object):
     settings = 'ig.json'
@@ -100,6 +101,7 @@ class InstapyCli(object):
             
             if media.is_image():
                 image_data, image_size = media.prepare(story)
+                # print('image size: {} with ratio of: {}'.format(image_size, image_size[0]/image_size[1]))
                 if story:
                     res = self.client.post_photo_story(image_data, image_size)
                 else:
