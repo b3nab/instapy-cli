@@ -65,9 +65,7 @@ Instapy-cli support images in the format of JPG/JPEG/PNG.
 
 *Aspect Ratio*
 The images need to have an aspect ratio of 1:1, that is squared size.
-You can use other aspect-ratio other than 1:1, but be carefull to stay inside this limits:
-- MIN_ASPECT_RATIO = 0.80
-- MAX_ASPECT_RATIO = 1.91
+You can use other aspect-ratio other than 1:1, but be carefull to stay inside Instagram limits.
 Otherwise, if you don't respect the aspect ratio, the media will be posted but stretched or cropped.
 
 ### Why instapy-cli?
@@ -90,6 +88,7 @@ Long answer:
 | package     | Source Link |
 | :---:       | :---: |
 | requests    | https://github.com/requests/requests |
+| filetype    | https://github.com/h2non/filetype.py |
 | instagram-private-api    | https://github.com/ping/instagram_private_api |
 | instagram-private-api-extensions    | https://github.com/ping/instagram_private_api_extensions |
 
