@@ -4,13 +4,13 @@
 )](https://paypal.me/b3nab)
 ####
 [![instapy-cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
-[![Build Status](https://travis-ci.org/b3nab/instapy-cli.svg?branch=master)](https://travis-ci.org/b3nab/instapy-cli)
-[![MIT license](https://img.shields.io/github/license/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/instagrambot/instapy-cli.svg?branch=master)](https://travis-ci.org/b3nab/instapy-cli)
+[![MIT license](https://img.shields.io/github/license/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
 
 ###### *Repo Infos*
-[![GitHub issues](https://img.shields.io/github/issues/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/issues)
-[![GitHub forks](https://img.shields.io/github/forks/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/network)
-[![GitHub stars](https://img.shields.io/github/stars/b3nab/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/issues)
+[![GitHub forks](https://img.shields.io/github/forks/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/network)
+[![GitHub stars](https://img.shields.io/github/stars/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/stargazers)
 
 ---
 
