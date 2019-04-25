@@ -9,8 +9,8 @@ warnings.filterwarnings("ignore")
 
 class InstapyCli(object):
     settings = 'ig.json'
-    def __init__(self, username, password):
-        self._login(username, password)
+    def __init__(self, username, password, cookie=None):
+        self._login(username, password, cookie)
 
     def __enter__(self):
         return self
@@ -18,9 +18,14 @@ class InstapyCli(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
     
-    def _login(self, username, password):
+    def _login(self, username, password, cookie):
         device_id = None
         try:
+            if cookie:
+                print('[IG] Use cookie.')
+                self.client = Client(
+                    username, password,
+                    settings=cookie)
             if not os.path.isfile(self.settings):
                 # settings file does not exist
                 print('[IG] Unable to find file: {0!s}'.format(self.settings))
@@ -68,6 +73,9 @@ class InstapyCli(object):
             exit(99)
         # finally:
         #     print(self.client.current_user())
+    
+    def set_cookie(self, cookie):
+        self.settings = cookie
     
     def _get_ig_settings(self):
         with open(self.settings, 'r') as igSettings:
