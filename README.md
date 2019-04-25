@@ -1,50 +1,51 @@
 # **instapy-cli** :zap:
 
+Publish *photos* and *videos* (NEW!) on Instagram, without a phone! You can upload **posts** and even **stories** on instagram.
+You can upload a local file or use a link, it does everything for you automagically.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/instagrambot/instapy-cli/master/docs/instagram-private-banner.png" alt="instapy-cli instagram-private-api" width="650px">
+</p>
+
+---
 [![Build Status](https://img.shields.io/badge/Paypal-DONATE-blue.svg?logo=paypal
 )](https://paypal.me/b3nab)
-####
 [![instapy-cli version](https://img.shields.io/pypi/v/instapy-cli.svg)](https://pypi.org/project/instapy-cli)
 [![Build Status](https://travis-ci.org/instagrambot/instapy-cli.svg?branch=master)](https://travis-ci.org/b3nab/instapy-cli)
 [![MIT license](https://img.shields.io/github/license/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/blob/master/LICENSE)
 
-###### *Repo Infos*
+
 [![GitHub issues](https://img.shields.io/github/issues/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/issues)
 [![GitHub forks](https://img.shields.io/github/forks/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/network)
 [![GitHub stars](https://img.shields.io/github/stars/instagrambot/instapy-cli.svg)](https://github.com/b3nab/instapy-cli/stargazers)
 
----
-
-Python library and cli used to post photos and videos (NEW!) on Instagram, without a phone!
-You can upload a local file or use a link, it does everything automagically.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/b3nab/instapy-cli/master/docs/instagram-private-banner.png" alt="instapy-cli instagram-private-api" width="650px">
-</p>
-
----
 
 ## Introduction
-There are plenty of libraries written in Python specialized on working on Instagram APIs (either public or private), but most of them have unsolved issues and PRs not maintained for a time as long as 5-6 months.
+There are plenty of libraries written in Python specialized on working on Instagram APIs (either public or private), but most of them have lots of unsolved issues and PRs not maintained for a long time.
 
-At the same time, lots of developers want a simple and effective way to post photos or videos (NEW!) **programmatically**.
+> Lots of developers want a simple and effective way to upload photos or videos (NEW!) directly to Instagram **programmatically**. Some may want to publish a simple post, others want to publish a story.
 
-So I dedided to start this repo and open-source it with :heart:
+All this can be achieved with `instapy-cli`. :tada:
+
+I dedided to start this repo and open-source it with :heart:
 
 
-### Install
+### Installation
 
-**Install**
+<!-- **Install** -->
 
 ```shell
 pip install instapy-cli
 ```
 
-### Use as Library
+### Usage
+
+#### Use as Library
 
 You can check the folder `examples` to see working codes to use instapy-cli programmatically.
 If you want to use instapy-cli via shell continue reading.
 
-### Use as CLI
+#### Use as CLI
 
 **Use**
 
@@ -92,14 +93,14 @@ Long answer:
 | instagram-private-api    | https://github.com/ping/instagram_private_api |
 | instagram-private-api-extensions    | https://github.com/ping/instagram_private_api_extensions |
 
-## License
-MIT
-
 ## Contribute
 To help `instapy-cli` developers to build and maintain this project, go to **[docs/CONTRIBUTING.md](/docs/CONTRIBUTING.md)**
 > instructions soon
 
 (Write it and collaborate! :wink:)
+
+## License
+MIT
 
 ## Support the project and the author
 Offer me a coffe or a beer and support instapy-cli. :tada:
