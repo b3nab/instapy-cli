@@ -19,6 +19,7 @@ class InstapyCli(object):
         pass
     
     def _login(self, username, password, cookie):
+        filename = username + self.settings
         device_id = None
         try:
             if cookie:
@@ -28,17 +29,17 @@ class InstapyCli(object):
                     settings=cookie)
             if not os.path.isfile(self.settings):
                 # settings file does not exist
-                print('[IG] Unable to find file: {0!s}'.format(self.settings))
+                print('[IG] Unable to find file: {0!s}'.format(filename))
 
                 # login new
                 self.client = Client(
                     username, password,
-                    on_login=lambda x: self._write_ig_settings(x, self.settings))
+                    on_login=lambda x: self._write_ig_settings(x, sfilename))
             else:
                 # with open(settings_file) as file_data:
                 #     cached_settings = json.load(file_data, object_hook=from_json)
-                cached_settings = self._get_ig_settings()
-                print('Reusing settings: {0!s}'.format(self.settings))
+                cached_settings = self._get_ig_settings(filename)
+                print('Reusing settings: {0!s}'.format(filename))
 
                 device_id = cached_settings.get('device_id')
                 # reuse auth settings
@@ -77,8 +78,8 @@ class InstapyCli(object):
     def set_cookie(self, cookie):
         self.settings = cookie
     
-    def _get_ig_settings(self):
-        with open(self.settings, 'r') as igSettings:
+    def _get_ig_settings(self, filename):
+        with open(filename, 'r') as igSettings:
             cached_settings = json.load(igSettings, object_hook=self.from_json)
             return cached_settings
 
