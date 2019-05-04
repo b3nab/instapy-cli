@@ -34,7 +34,7 @@ class InstapyCli(object):
                 # login new
                 self.client = Client(
                     username, password,
-                    on_login=lambda x: self._write_ig_settings(x, sfilename))
+                    on_login=lambda x: self._write_ig_settings(x, filename))
             else:
                 # with open(settings_file) as file_data:
                 #     cached_settings = json.load(file_data, object_hook=from_json)
