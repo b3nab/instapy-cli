@@ -61,8 +61,20 @@ instapy --help
 
 
 #### Hint
+*Cookie*
+You can avoid to re-login, by using a cookie that instapy-cli generate for you.
+By default instapy-cli use the cookie created in current working directory with the name 'USERNAME_ig.json'.
+If you don't want to store the cookie in your filesystem you need to pass the parameter `cookie`:
+
+```python
+with client(username, password, cookie) as cli:
+    # do stuffs with cli
+```
+
+This is feature is not well tested, be carefull using it.
+
 *Image Format*
-Instapy-cli support images in the format of JPG/JPEG/PNG.
+instapy-cli support images in the format of JPG/JPEG/PNG.
 
 *Aspect Ratio*
 The images need to have an aspect ratio of 1:1, that is squared size.

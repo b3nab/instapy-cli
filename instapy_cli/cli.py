@@ -27,7 +27,7 @@ class InstapyCli(object):
                 self.client = Client(
                     username, password,
                     settings=cookie)
-            if not os.path.isfile(cookie_file):
+            elif not os.path.isfile(cookie_file):
                 # settings file does not exist
                 print('[IG] Unable to find file: {0!s}'.format(cookie_file))
 
@@ -74,6 +74,9 @@ class InstapyCli(object):
             exit(99)
         # finally:
         #     print(self.client.current_user())
+    
+    def api(self):
+        return self.client
 
     def set_cookie(self, cookie):
         self.settings = cookie
