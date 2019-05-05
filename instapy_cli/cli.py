@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 class InstapyCli(object):
-    settings = 'ig.json'
+    settings = '_ig.json'
     def __init__(self, username, password, cookie=None):
         self._login(username, password, cookie)
 
@@ -17,8 +17,9 @@ class InstapyCli(object):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
-    
+
     def _login(self, username, password, cookie):
+        cookie_file = username + self.settings
         device_id = None
         try:
             if cookie:
@@ -26,19 +27,19 @@ class InstapyCli(object):
                 self.client = Client(
                     username, password,
                     settings=cookie)
-            if not os.path.isfile(self.settings):
+            if not os.path.isfile(cookie_file):
                 # settings file does not exist
-                print('[IG] Unable to find file: {0!s}'.format(self.settings))
+                print('[IG] Unable to find file: {0!s}'.format(cookie_file))
 
                 # login new
                 self.client = Client(
                     username, password,
-                    on_login=lambda x: self._write_ig_settings(x, self.settings))
+                    on_login=lambda x: self._write_ig_settings(x, cookie_file))
             else:
                 # with open(settings_file) as file_data:
                 #     cached_settings = json.load(file_data, object_hook=from_json)
-                cached_settings = self._get_ig_settings()
-                print('Reusing settings: {0!s}'.format(self.settings))
+                cached_settings = self._get_ig_settings(cookie_file)
+                print('Reusing settings: {0!s}'.format(cookie_file))
 
                 device_id = cached_settings.get('device_id')
                 # reuse auth settings
@@ -59,7 +60,7 @@ class InstapyCli(object):
             self.client = Client(
                 username, password,
                 device_id=device_id,
-                on_login=lambda x: self._write_ig_settings(x, self.settings))
+                on_login=lambda x: self._write_ig_settings(x, cookie_file))
 
         except ClientLoginError as e:
             print('ClientLoginError {0!s}'.format(e))
@@ -73,22 +74,22 @@ class InstapyCli(object):
             exit(99)
         # finally:
         #     print(self.client.current_user())
-    
+
     def set_cookie(self, cookie):
         self.settings = cookie
-    
-    def _get_ig_settings(self):
-        with open(self.settings, 'r') as igSettings:
+
+    def _get_ig_settings(self, cookie_file):
+        with open(cookie_file, 'r') as igSettings:
             cached_settings = json.load(igSettings, object_hook=self.from_json)
             return cached_settings
 
-    def _write_ig_settings(self, api, settings):
+    def _write_ig_settings(self, api, cookie_file):
         # self.cookie = cookie
-        with open(self.settings, 'w') as igSettings:
+        with open(cookie_file, 'w') as igSettings:
             json.dump(api.settings, igSettings, default=self.to_json)
-            print('SAVED: {0!s}'.format(settings))
+            print('SAVED: {0!s}'.format(cookie_file))
             # igSettings.write(cookie)
-    
+
     def to_json(self, python_object):
         if isinstance(python_object, bytes):
             return {'__class__': 'bytes',
@@ -99,14 +100,14 @@ class InstapyCli(object):
         if '__class__' in json_object and json_object['__class__'] == 'bytes':
             return codecs.decode(json_object['__value__'].encode(), 'base64')
         return json_object
-    
+
     def upload(self, file, caption='', story=False):
         upload_completed = True
         media = Media(file)
 
         res = None
         try:
-            
+
             if media.is_image():
                 image_data, image_size = media.prepare(story)
                 # print('image size: {} with ratio of: {}'.format(image_size, image_size[0]/image_size[1]))
@@ -122,9 +123,9 @@ class InstapyCli(object):
                     res = self.client.post_video(video_data, video_size, video_duration, video_thumbnail, caption=caption)
             else:
                 raise Exception('Media is not a recognized file type, use only images and videos.')
-                
+
             # print(res)
-            
+
 
         except Exception as e:
             print('Error is >>\n    ' + str(e))
