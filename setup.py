@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='instapy-cli',
-    version='0.0.9.2',
+    version='0.0.10',
     description='Python library and cli used to upload photo on Instagram. W/o a phone!',
     long_description=long_description,
     # This field corresponds to the "Description-Content-Type" metadata field:
@@ -49,11 +49,6 @@ setup(
         'instagram_private_api==1.6.0',
         'instagram_private_api_extensions==0.3.8',
     ],
-    dependency_links=[
-        'https://github.com/ping/instagram_private_api/archive/%(api)s.tar.gz'
-            '#egg=instagram_private_api-%(api)s' % {'api': '1.6.0'},
-        'https://github.com/ping/instagram_private_api_extensions/archive/%(ext)s.tar.gz'
-            '#egg=instagram_private_api_extensions-%(ext)s' % {'ext': '0.3.8'}    ],
     entry_points={
         'console_scripts': [
             'instapy=instapy_cli.__main__:main'
