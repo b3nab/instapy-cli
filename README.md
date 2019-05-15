@@ -1,6 +1,6 @@
 # **instapy-cli** :zap:
 
-Publish *photos* and *videos* (NEW!) on Instagram, without a phone! You can upload **posts** and even **stories** on instagram.
+Publish *photos* and *videos* (NEW!) on Instagram, without a phone! You can upload **posts** and even **stories** on Instagram.
 You can upload a local file or use a link, it does everything for you automagically.
 
 <p align="center">
@@ -52,6 +52,16 @@ If you want to use instapy-cli via shell continue reading.
 ```shell
 instapy -u USR -p PSW -f FILE/LINK -t 'TEXT CAPTION'
 ```
+
+**CLI Options**
+
+| option | required | default | description |
+| --- | --- | --- | --- |
+| -u | **yes** | - | username |
+| -p | **yes** | - | password |
+| -f | **yes** | - | file/media to upload |
+| -t | *optional* | - | text caption for post |
+| -s | *optional* | - | upload a story |
 
 **Help**
 
