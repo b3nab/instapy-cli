@@ -8,6 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 class InstapyCli(object):
+    cookie = None
     cookies_file_ext = '_ig.json'
     def __init__(self, username, password, cookie=None, cookie_file=None, write_cookie_file=False):
         if type(cookie) == str:
