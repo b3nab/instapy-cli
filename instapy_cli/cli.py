@@ -8,9 +8,12 @@ import warnings
 warnings.filterwarnings("ignore")
 
 class InstapyCli(object):
-    settings = '_ig.json'
-    def __init__(self, username, password, cookie=None):
-        self._login(username, password, cookie)
+    cookies_file_ext = '_ig.json'
+    def __init__(self, username, password, cookie=None, cookie_file=None, write_cookie_file=False):
+        if type(cookie) == str:
+            self.cookie = json.loads(cookie, object_hook=self.from_json, strict=False)
+        self.write_cookie_file = write_cookie_file
+        self._login(username, password, self.cookie, cookie_file)
 
     def __enter__(self):
         return self
@@ -18,43 +21,42 @@ class InstapyCli(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
 
-    def _login(self, username, password, cookie):
-        cookie_file = username + self.settings
+    def _login(self, username, password, cookie=None, cookie_file=None):
+        if not cookie_file:
+            cookie_file = username + self.cookies_file_ext
         device_id = None
         try:
+            # if cookie is used
             if cookie:
-                print('[IG] Use cookie.')
+                print('[IG] use cookie.')
                 self.client = Client(
                     username, password,
                     settings=cookie)
-            elif not os.path.isfile(cookie_file):
+
+            # or if cookie_file is used and exist
+            elif os.path.isfile(cookie_file):
+                cached_settings = self._get_ig_settings(cookie_file)
+                device_id = cached_settings.get('device_id')
+                
+                print('[IG] re-use cookie from {0!s}'.format(cookie_file))
+                # reuse auth settings
+                self.client = Client(
+                    username, password,
+                    settings=cached_settings)
+
+            # but if no cookie/cookie_file, login to default
+            else:
                 # settings file does not exist
-                print('[IG] Unable to find file: {0!s}'.format(cookie_file))
+                print('[IG] not found cookie/cookie_file >> login as default')
 
                 # login new
                 self.client = Client(
                     username, password,
                     on_login=lambda x: self._write_ig_settings(x, cookie_file))
-            else:
-                # with open(settings_file) as file_data:
-                #     cached_settings = json.load(file_data, object_hook=from_json)
-                cached_settings = self._get_ig_settings(cookie_file)
-                print('Reusing settings: {0!s}'.format(cookie_file))
 
-                device_id = cached_settings.get('device_id')
-                # reuse auth settings
-                self.client = Client(
-                    username, password,
-                    settings=cached_settings)
-            # with cookie
-            # self.client = Client(user, password, cookie=self._get_ig_settings())
-        # except ClientCookieExpiredError as e:
-        #     self.client = Client(user, password)
-        #     self._write_ig_cookie(self.client.settings['cookie'])
         except (ClientCookieExpiredError, ClientLoginRequiredError) as e:
             print(
                 'ClientCookieExpiredError/ClientLoginRequiredError: {0!s}'.format(e))
-
             # Login expired
             # Do relogin but use default ua, keys and such
             self.client = Client(
@@ -79,19 +81,23 @@ class InstapyCli(object):
         return self.client
 
     def set_cookie(self, cookie):
-        self.settings = cookie
+        self.cookie = cookie
+
+    def get_cookie(self):
+        return json.dumps(self.cookie, default=self.to_json)
 
     def _get_ig_settings(self, cookie_file):
         with open(cookie_file, 'r') as igSettings:
             cached_settings = json.load(igSettings, object_hook=self.from_json)
+            self.set_cookie(cached_settings)
             return cached_settings
 
     def _write_ig_settings(self, api, cookie_file):
-        # self.cookie = cookie
-        with open(cookie_file, 'w') as igSettings:
-            json.dump(api.settings, igSettings, default=self.to_json)
-            print('SAVED: {0!s}'.format(cookie_file))
-            # igSettings.write(cookie)
+        self.set_cookie(api.settings)
+        if self.write_cookie_file:
+            with open(cookie_file, 'w') as igSettings:
+                json.dump(api.settings, igSettings, default=self.to_json)
+                print('SAVED: {0!s}'.format(cookie_file))
 
     def to_json(self, python_object):
         if isinstance(python_object, bytes):
