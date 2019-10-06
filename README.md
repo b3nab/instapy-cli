@@ -73,6 +73,8 @@ instapy --help
 #### Hints
 ##### Cookie
 You can avoid to re-login, by using a cookie that instapy-cli generate for you.
+Cookie can be generated and saved to file system using the following example: [login-cookie-write-file.py
+](examples/login-cookie-write-file.py)
 By default instapy-cli use the cookie created in current working directory with the name 'USERNAME_ig.json'.
 If you don't want to store the cookie in your filesystem you need to pass the parameter `cookie`:
 
