@@ -138,9 +138,10 @@ class InstapyCli(object):
 
 
         except Exception as e:
-            print('Error is >>\n    ' + str(e))
-            print('\nSomething went bad.\nPlease retry or send an issue on https://github.com/b3nab/instapy-cli\n')
+         #   print('Error is >>\n    ' + str(e))
+         #   print('\nSomething went bad.\nPlease retry or send an issue on https://github.com/b3nab/instapy-cli\n')
             upload_completed = False
+            raise IOError(str(e), '\nSomething went bad.\nPlease retry or send an issue on https://github.com/b3nab/instapy-cli\n')
 
         finally:
             # media_status = 'YES' if media.isDownloaded() else 'NO'

@@ -25,15 +25,20 @@ class Media(object):
         # if file is a local file
         else:
             self.media_path = file
-        
+
         self.check_type()
-    
+
     def check_type(self):
-        self.media_ext = filetype.guess(self.media_path).extension
-    
+        ext = filetype.guess(self.media_path)
+        if None is self.media_ext:
+            absolute_path = os.path.abspath(self.media_path)
+            self.media_ext = os.path.splitext(absolute_path)[-1].replace(".", "")
+        else:
+            self.media_ext = ext.extension
+
     def is_image(self):
         return True if self.media_ext in ['jpg', 'png', 'gif'] else False
-        
+
     def is_video(self):
         return True if self.media_ext in ['mp4', 'mov', 'avi'] else False
 
